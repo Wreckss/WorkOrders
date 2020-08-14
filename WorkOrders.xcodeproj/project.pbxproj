@@ -13,6 +13,7 @@
 		1C8F963A24D7DCDC00B02798 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1C8F963924D7DCDC00B02798 /* Assets.xcassets */; };
 		1C8F963D24D7DCDC00B02798 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1C8F963C24D7DCDC00B02798 /* Preview Assets.xcassets */; };
 		1C8F964024D7DCDC00B02798 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C8F963E24D7DCDC00B02798 /* LaunchScreen.storyboard */; };
+		1C8F964A24D7FA1500B02798 /* CheckboxField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C8F964924D7FA1500B02798 /* CheckboxField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		1C8F963C24D7DCDC00B02798 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1C8F963F24D7DCDC00B02798 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1C8F964124D7DCDC00B02798 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1C8F964924D7FA1500B02798 /* CheckboxField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +42,7 @@
 		1C8F962724D7DCDC00B02798 = {
 			isa = PBXGroup;
 			children = (
+				1C8F964924D7FA1500B02798 /* CheckboxField.swift */,
 				1C8F963224D7DCDC00B02798 /* WorkOrders */,
 				1C8F963124D7DCDC00B02798 /* Products */,
 			);
@@ -146,6 +149,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C8F964A24D7FA1500B02798 /* CheckboxField.swift in Sources */,
 				1C8F963424D7DCDC00B02798 /* AppDelegate.swift in Sources */,
 				1C8F963624D7DCDC00B02798 /* SceneDelegate.swift in Sources */,
 				1C8F963824D7DCDC00B02798 /* ContentView.swift in Sources */,

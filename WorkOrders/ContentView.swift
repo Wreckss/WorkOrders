@@ -8,9 +8,83 @@
 
 import SwiftUI
 
-struct ContentView: View {
+//class User: ObservableObject {
+//    @Published var userName = ""
+//    @Published var passWord = ""
+//}
+
+struct JobListView: View {
+    @Environment(\.presentationMode) var presentationMode
+    
+    var userName: String
+    
     var body: some View {
-        Text("Hello, World!")
+        
+        VStack {
+            List {
+                Text("Job #1")
+                Text("Job #2")
+            }
+            Button("Dismiss") {
+                self.presentationMode.wrappedValue.dismiss()
+            }
+        }
+        
+    }
+}
+
+struct ContentView: View {
+   // @ObservedObject private var user = User()
+    
+    @State private var showingJobList = false
+    
+    @State private var userName = ""
+    @State private var userPassword = ""
+    private var cornerRadius = 12
+    private var backgroundBlue = Color.blue
+    
+    var body: some View {
+        
+        VStack {
+            ZStack {
+                Text("Company Name")
+            }
+            .background(backgroundBlue)
+            .clipShape(Rectangle())
+            .cornerRadius(CGFloat(cornerRadius))
+            .font(.largeTitle)
+            
+            VStack {
+                TextField("Username", text: $userName)
+                TextField("Password", text: $userPassword)
+                
+                HStack {
+                    CheckboxField(id: "username", label: "Remember Username", callback: checkboxSelected)
+                }
+            }
+            .textFieldStyle(RoundedBorderTextFieldStyle())
+            .padding()
+            
+            
+            
+            ZStack {
+                Button("Log in") {
+                    self.showingJobList.toggle()
+                }
+                .sheet(isPresented: $showingJobList) {
+                    JobListView(userName: "valar")
+                }
+            }
+            .background(Color.gray)
+            .clipShape(Rectangle())
+            .cornerRadius(CGFloat(cornerRadius))
+        }
+    }
+    
+
+    
+    func checkboxSelected(id: String, isMarked: Bool) {
+        print("\(id) is marked: \(isMarked)")
     }
 }
 
