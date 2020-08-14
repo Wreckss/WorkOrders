@@ -12,6 +12,7 @@ struct JobListView: View {
     @Environment(\.presentationMode) var presentationMode
     @State private var jobNumbers = [String](arrayLiteral: "Job #1", "Job #2")
     var userName: String
+    @ObservedObject var jobs = JobItems()
     
     var body: some View {
         NavigationView {
@@ -25,7 +26,15 @@ struct JobListView: View {
                         self.presentationMode.wrappedValue.dismiss()
                     }
                 }
-                    .navigationBarItems(trailing: EditButton())
+                    .navigationBarItems(leading: Button(action: {
+                                        let job = JobItem(jobNumber: "Job #\(jobNumbers.count)")
+                                        self.jobs.jobs.append(job)
+                                        })
+                                    {
+                                        Image(systemName: "plus")
+                                    }
+            , trailing: EditButton())
+                    //.navigationBarItems(trailing: EditButton())
             }
         }
     
