@@ -8,33 +8,7 @@
 
 import SwiftUI
 
-//class User: ObservableObject {
-//    @Published var userName = ""
-//    @Published var passWord = ""
-//}
-
-struct JobListView: View {
-    @Environment(\.presentationMode) var presentationMode
-    
-    var userName: String
-    
-    var body: some View {
-        
-        VStack {
-            List {
-                Text("Job #1")
-                Text("Job #2")
-            }
-            Button("Dismiss") {
-                self.presentationMode.wrappedValue.dismiss()
-            }
-        }
-        
-    }
-}
-
 struct ContentView: View {
-   // @ObservedObject private var user = User()
     
     @State private var showingJobList = false
     
@@ -69,10 +43,11 @@ struct ContentView: View {
             
             ZStack {
                 Button("Log in") {
+                   // setUserName(userName: userName)
                     self.showingJobList.toggle()
                 }
                 .sheet(isPresented: $showingJobList) {
-                    JobListView(userName: "valar")
+                    JobListView(userName: "pickleRick")
                 }
             }
             .background(Color.gray)
@@ -86,6 +61,20 @@ struct ContentView: View {
     func checkboxSelected(id: String, isMarked: Bool) {
         print("\(id) is marked: \(isMarked)")
     }
+    
+//    func setUserName(userName: String) {
+//        user.userName = userName
+//    }
+    
+//    func setRememberUserName() {
+//        let encoder = JSONEncoder()
+//
+//        if let data = try? encoder.encode(self.user) {
+//            UserDefaults.standard.set(data, forKey: "SavedUserName")
+//        }
+//    }
+    
+    
 }
 
 struct ContentView_Previews: PreviewProvider {

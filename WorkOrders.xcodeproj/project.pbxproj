@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C13561924E65E4900AE4F49 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C13561824E65E4900AE4F49 /* User.swift */; };
+		1C13561B24E65F0B00AE4F49 /* JobListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C13561A24E65F0B00AE4F49 /* JobListView.swift */; };
 		1C8F963424D7DCDC00B02798 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C8F963324D7DCDC00B02798 /* AppDelegate.swift */; };
 		1C8F963624D7DCDC00B02798 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C8F963524D7DCDC00B02798 /* SceneDelegate.swift */; };
 		1C8F963824D7DCDC00B02798 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C8F963724D7DCDC00B02798 /* ContentView.swift */; };
@@ -17,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1C13561824E65E4900AE4F49 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		1C13561A24E65F0B00AE4F49 /* JobListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobListView.swift; sourceTree = "<group>"; };
 		1C8F963024D7DCDC00B02798 /* WorkOrders.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorkOrders.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C8F963324D7DCDC00B02798 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1C8F963524D7DCDC00B02798 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -62,6 +66,8 @@
 				1C8F963324D7DCDC00B02798 /* AppDelegate.swift */,
 				1C8F963524D7DCDC00B02798 /* SceneDelegate.swift */,
 				1C8F963724D7DCDC00B02798 /* ContentView.swift */,
+				1C13561A24E65F0B00AE4F49 /* JobListView.swift */,
+				1C13561824E65E4900AE4F49 /* User.swift */,
 				1C8F963924D7DCDC00B02798 /* Assets.xcassets */,
 				1C8F963E24D7DCDC00B02798 /* LaunchScreen.storyboard */,
 				1C8F964124D7DCDC00B02798 /* Info.plist */,
@@ -151,7 +157,9 @@
 			files = (
 				1C8F964A24D7FA1500B02798 /* CheckboxField.swift in Sources */,
 				1C8F963424D7DCDC00B02798 /* AppDelegate.swift in Sources */,
+				1C13561B24E65F0B00AE4F49 /* JobListView.swift in Sources */,
 				1C8F963624D7DCDC00B02798 /* SceneDelegate.swift in Sources */,
+				1C13561924E65E4900AE4F49 /* User.swift in Sources */,
 				1C8F963824D7DCDC00B02798 /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
