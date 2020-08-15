@@ -8,11 +8,36 @@
 
 import Foundation
 
-struct JobItem {
+//by making this struct conform to identifiable, we no longer need to refer to id in ForEach
+struct JobItem: Identifiable, Codable {
     let jobNumber: String
-    let id = UUID()
+    var id = UUID()
 }
 
 class JobItems: ObservableObject {
-    @Published var jobsArray = [JobItem](arrayLiteral: JobItem(jobNumber: "Job #1"))
+    @Published var jobsArray = [JobItem](arrayLiteral: JobItem(jobNumber: "Job #1")) {
+        //explained at https://www.hackingwithswift.com/books/ios-swiftui/making-changes-permanent-with-userdefaults
+        didSet {
+            let encoder = JSONEncoder()
+            
+            if let encoded = try?
+                encoder.encode(jobsArray) {
+                UserDefaults.standard.set(encoded, forKey: "Items")
+            }
+        }
+    }
+    
+    init() {
+        if let items = UserDefaults.standard.data(forKey: "Items") {
+            let decoder = JSONDecoder()
+            
+            if let decoded = try?
+                decoder.decode([JobItem].self, from: items) {
+                self.jobsArray = decoded
+                return
+            }
+        }
+        self.jobsArray = []
+    }
+    
 }

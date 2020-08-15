@@ -18,18 +18,18 @@ struct JobListView: View {
         NavigationView {
             VStack {
                 List {
-                    ForEach(jobItems.jobsArray, id: \.id) { job in
+                    ForEach(jobItems.jobsArray) { job in
                         Text(job.jobNumber)
                     }
-                    .onDelete(perform: removeItems)
+                    .onDelete(perform: removeJob)
                 }
                 Button("Dismiss") {
                     self.presentationMode.wrappedValue.dismiss()
                 }
             }
             .navigationBarItems(leading: Button(action: {
-                let job = JobItem(jobNumber: "Job #\(jobItems.jobsArray.count+1)")
-                self.jobItems.jobsArray.append(job)
+                let newJob = JobItem(jobNumber: "Job #\(jobItems.jobsArray.count+1)")
+                self.jobItems.jobsArray.append(newJob)
             })
             {
                 Image(systemName: "plus")
@@ -38,7 +38,7 @@ struct JobListView: View {
         }
     }
     
-    func removeItems(at offsets: IndexSet) {
+    func removeJob(at offsets: IndexSet) {
         jobItems.jobsArray.remove(atOffsets: offsets)
     }
 
