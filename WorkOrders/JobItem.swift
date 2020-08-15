@@ -10,8 +10,9 @@ import Foundation
 
 struct JobItem {
     let jobNumber: String
+    let id = UUID()
 }
 
 class JobItems: ObservableObject {
-    @Published var jobs = [JobItem](arrayLiteral: JobItem(jobNumber: "TESTER"))
+    @Published var jobsArray = [JobItem](arrayLiteral: JobItem(jobNumber: "Job #1"))
 }

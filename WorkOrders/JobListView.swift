@@ -10,32 +10,34 @@ import SwiftUI
 
 struct JobListView: View {
     @Environment(\.presentationMode) var presentationMode
-    @State private var jobNumbers = [String](arrayLiteral: "Job #1", "Job #2")
     var userName: String
-    @ObservedObject var jobs = JobItems()
+    
+    @ObservedObject var jobItems = JobItems()
     
     var body: some View {
         NavigationView {
             VStack {
-                    List {
-                        ForEach(jobNumbers, id: \.self) {
-                            Text("\($0)")
-                        }
-                    }
-                    Button("Dismiss") {
-                        self.presentationMode.wrappedValue.dismiss()
+                List {
+                    ForEach(jobItems.jobsArray, id: \.id) { job in
+                        Text(job.jobNumber)
                     }
                 }
-                    .navigationBarItems(leading: Button(action: {
-                                        let job = JobItem(jobNumber: "Job #\(jobNumbers.count)")
-                                        self.jobs.jobs.append(job)
-                                        })
-                                    {
-                                        Image(systemName: "plus")
-                                    }
-            , trailing: EditButton())
-                    //.navigationBarItems(trailing: EditButton())
+                Button("Dismiss") {
+                    self.presentationMode.wrappedValue.dismiss()
+                }
             }
+            .navigationBarItems(leading: Button(action: {
+                //TODO: allow this button to add to jobsArray
+                let job = JobItem(jobNumber: "Job #\(jobItems.jobsArray.count+1)")
+                self.jobItems.jobsArray.append(job)
+            })
+            {
+                Image(systemName: "plus")
+            }
+            , trailing: EditButton())
         }
+    }
+    
+
     
 }
