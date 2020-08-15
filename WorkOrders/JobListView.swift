@@ -9,9 +9,9 @@
 import SwiftUI
 
 struct JobListView: View {
+    
     @Environment(\.presentationMode) var presentationMode
     var userName: String
-    
     @ObservedObject var jobItems = JobItems()
     
     var body: some View {
@@ -28,7 +28,6 @@ struct JobListView: View {
                 }
             }
             .navigationBarItems(leading: Button(action: {
-                //TODO: allow this button to add to jobsArray
                 let job = JobItem(jobNumber: "Job #\(jobItems.jobsArray.count+1)")
                 self.jobItems.jobsArray.append(job)
             })
@@ -43,5 +42,4 @@ struct JobListView: View {
         jobItems.jobsArray.remove(atOffsets: offsets)
     }
 
-    
 }

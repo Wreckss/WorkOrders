@@ -14,15 +14,15 @@ struct CheckboxField: View {
     let size: CGFloat
     let color: Color
     let textSize: Int
-    let callback: (String, Bool)->()
+    let callback: (String, Bool) -> ()
     
     init(
         id: String,
-        label:String,
+        label: String,
         size: CGFloat = 10,
         color: Color = Color.black,
         textSize: Int = 14,
-        callback: @escaping (String, Bool)->()
+        callback: @escaping (String, Bool) -> ()
         ) {
         self.id = id
         self.label = label
@@ -32,7 +32,7 @@ struct CheckboxField: View {
         self.callback = callback
     }
     
-    @State var isMarked:Bool = false
+    @State var isMarked: Bool = false
     
     var body: some View {
         Button(action:{

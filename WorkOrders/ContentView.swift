@@ -11,14 +11,12 @@ import SwiftUI
 struct ContentView: View {
     
     @State private var showingJobList = false
-    
     @State private var userName = ""
     @State private var userPassword = ""
     private var cornerRadius = 12
     private var backgroundBlue = Color.blue
     
     var body: some View {
-        
         VStack {
             ZStack {
                 Text("Company Name")
@@ -27,7 +25,6 @@ struct ContentView: View {
             .clipShape(Rectangle())
             .cornerRadius(CGFloat(cornerRadius))
             .font(.largeTitle)
-            
             VStack {
                 TextField("Username", text: $userName)
                 TextField("Password", text: $userPassword)
@@ -38,12 +35,8 @@ struct ContentView: View {
             }
             .textFieldStyle(RoundedBorderTextFieldStyle())
             .padding()
-            
-            
-            
             ZStack {
                 Button("Log in") {
-                   // setUserName(userName: userName)
                     self.showingJobList.toggle()
                 }
                 .sheet(isPresented: $showingJobList) {
@@ -56,24 +49,9 @@ struct ContentView: View {
         }
     }
     
-
-    
     func checkboxSelected(id: String, isMarked: Bool) {
         print("\(id) is marked: \(isMarked)")
     }
-    
-//    func setUserName(userName: String) {
-//        user.userName = userName
-//    }
-    
-//    func setRememberUserName() {
-//        let encoder = JSONEncoder()
-//
-//        if let data = try? encoder.encode(self.user) {
-//            UserDefaults.standard.set(data, forKey: "SavedUserName")
-//        }
-//    }
-    
     
 }
 
