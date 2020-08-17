@@ -15,37 +15,28 @@ struct ContentView: View {
     @State private var userPassword = ""
     private var cornerRadius = 12
     private var backgroundBlue = Color.blue
+    @State var jobListView = ActiveJobView()
+    @ObservedObject var allJobs = JobItems()
+    
+    
     
     var body: some View {
-        VStack {
-            ZStack {
-                Text("Company Name")
-            }
-            .background(backgroundBlue)
-            .clipShape(Rectangle())
-            .cornerRadius(CGFloat(cornerRadius))
-            .font(.largeTitle)
+        NavigationView {
             VStack {
-                TextField("Username", text: $userName)
-                TextField("Password", text: $userPassword)
-                
-                HStack {
-                    CheckboxField(id: "username", label: "Remember Username", callback: checkboxSelected)
+                VStack {
+                    TextField("Username", text: $userName)
+                    TextField("Password", text: $userPassword)
+                    HStack {
+                        CheckboxField(id: "username", label: "Remember Username", callback: checkboxSelected)
+                    }
+                }
+                .navigationBarTitle("Company Name")
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .padding()
+                NavigationLink(destination: jobListView) {
+                    Text("Log in")
                 }
             }
-            .textFieldStyle(RoundedBorderTextFieldStyle())
-            .padding()
-            ZStack {
-                Button("Log in") {
-                    self.showingJobList.toggle()
-                }
-                .sheet(isPresented: $showingJobList) {
-                    JobListView(userName: "pickleRick")
-                }
-            }
-            .background(Color.gray)
-            .clipShape(Rectangle())
-            .cornerRadius(CGFloat(cornerRadius))
         }
     }
     
