@@ -14,8 +14,8 @@ struct JobItem: Identifiable, Codable {
     var id = UUID()
 }
 
-class JobItems: ObservableObject, Identifiable {
 
+class JobItems: ObservableObject, Identifiable {
     @Published var jobsArray = [JobItem]() {
         //explained at https://www.hackingwithswift.com/books/ios-swiftui/making-changes-permanent-with-userdefaults
         didSet {
@@ -27,7 +27,6 @@ class JobItems: ObservableObject, Identifiable {
             }
         }
     }
-    
     init() {
         if let items = UserDefaults.standard.data(forKey: "Items") {
             let decoder = JSONDecoder()

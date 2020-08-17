@@ -15,10 +15,7 @@ struct ContentView: View {
     @State private var userPassword = ""
     private var cornerRadius = 12
     private var backgroundBlue = Color.blue
-    @State var jobListView = ActiveJobView()
-    @ObservedObject var allJobs = JobItems()
-    
-    
+    @State var activeJobView = ActiveJobView()
     
     var body: some View {
         NavigationView {
@@ -33,7 +30,7 @@ struct ContentView: View {
                 .navigationBarTitle("Company Name")
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .padding()
-                NavigationLink(destination: jobListView) {
+                NavigationLink(destination: activeJobView) {
                     Text("Log in")
                 }
             }

@@ -19,11 +19,15 @@ struct ActiveJobView: View {
             VStack {
                 List {
                     ForEach(jobItems.jobsArray) { job in
-                        HStack {
-                            VStack(alignment: .leading) {
-                                Text("\(job.jobNumber)")
-                                    .font(.headline)
-                                Text("\(job.jobNumber)")
+                        //TODO: change destination to CurrentJobView()
+                        NavigationLink(destination: Text("This job")) {
+                            HStack {
+                                VStack(alignment: .leading) {
+                                    Text("\(job.jobNumber)")
+                                        .font(.headline)
+                                    Text("Location")
+                                        .font(.footnote)
+                                }
                             }
                         }
                     }
@@ -33,7 +37,7 @@ struct ActiveJobView: View {
         }
         .navigationBarTitle("Active Jobs")
         .navigationBarItems(leading: Button(action: {
-            jobCount += 1
+            jobCount = jobItems.jobsArray.count + 1
             let newJob = JobItem(jobNumber: "Job #\(jobCount)")
             self.jobItems.jobsArray.append(newJob)
         })
@@ -51,6 +55,6 @@ struct ActiveJobView: View {
 
 struct JobListView_Previews: PreviewProvider {
     static var previews: some View {
-        /*@START_MENU_TOKEN@*/Text("Hello, World!")/*@END_MENU_TOKEN@*/
+        ActiveJobView()
     }
 }
