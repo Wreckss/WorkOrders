@@ -12,7 +12,7 @@ struct ActiveJobView: View {
     
     @Environment(\.presentationMode) var presentationMode
     @ObservedObject var jobItems = JobItems()
-    @State var jobCount = 0
+    @State var jobID = 0
     
     var body: some View {
         NavigationView {
@@ -37,8 +37,8 @@ struct ActiveJobView: View {
         }
         .navigationBarTitle("Active Jobs")
         .navigationBarItems(leading: Button(action: {
-            jobCount = jobItems.jobsArray.count + 1
-            let newJob = JobItem(jobNumber: "Job #\(jobCount)")
+            jobID += 1
+            let newJob = JobItem(jobID: jobID, jobNumber: "Job #\(jobID)")
             self.jobItems.jobsArray.append(newJob)
         })
         {
@@ -55,6 +55,6 @@ struct ActiveJobView: View {
 
 struct JobListView_Previews: PreviewProvider {
     static var previews: some View {
-        ActiveJobView()
+        ContentView()
     }
 }

@@ -10,6 +10,7 @@ import Foundation
 
 //by making this struct conform to Identifiable, we no longer need to refer to id in ForEach
 struct JobItem: Identifiable, Codable {
+    let jobID: Int
     let jobNumber: String
     var id = UUID()
 }
